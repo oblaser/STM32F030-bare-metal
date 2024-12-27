@@ -29,14 +29,24 @@
             "problemMatcher": []
         },
         {
-            "label": "Build + Flash",
+            "label": "Rebuild + Flash",
             "dependsOrder": "sequence",
             "dependsOn": [
                 "CMake: clean rebuild",
-                "CubeProg: Flash project (SWD)",
-            ]
+                "CubeProg: Flash project (SWD)"
+            ],
+            "problemMatcher": ["$gcc"]
         },
-                {
+        {
+            "label": "Build + Flash",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: build",
+                "CubeProg: Flash project (SWD)"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
             "type": "cmake",
             "label": "CMake: clean rebuild",
             "command": "cleanRebuild",
@@ -44,9 +54,27 @@
                 "all"
             ],
             "preset": "${command:cmake.activeBuildPresetName}",
-            "group": "build",
-            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": ["$gcc"],
             "detail": "CMake template clean rebuild task"
+        },
+        {
+            "type": "cmake",
+            "label": "CMake: build",
+            "command": "build",
+            "targets": [
+                "all"
+            ],
+            "preset": "${command:cmake.activeBuildPresetName}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "CMake template build task"
         },
         {
             "type": "shell",
