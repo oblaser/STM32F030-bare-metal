@@ -31,10 +31,17 @@ set(cpu_PARAMS
 )
 
 # Sources
-set(sources_SRCS)
+set(sources_SRCS ${sources_SRCS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/startup_stm32f030k6tx.s
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/syscall.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/sysmem.c
+)
 
 # Include directories for all compilers
-set(include_DIRS)
+set(include_DIRS ${include_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
 
 # Include directories for each compiler
 set(include_c_DIRS)
