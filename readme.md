@@ -2,7 +2,7 @@
 
 - MCU: `STM32F030K6T6`
 - Dependencies:
-    - ST CMSIS
+    - [ST CMSIS](./cmsis/readme.md)
 - Tools:
     - STM32CubeCLT
     - STM32 VS Code Extension

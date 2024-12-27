@@ -40,6 +40,8 @@ set(sources_SRCS ${sources_SRCS}
 
 # Include directories for all compilers
 set(include_DIRS ${include_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmsis/core
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmsis/device
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
@@ -49,7 +51,9 @@ set(include_cxx_DIRS)
 set(include_asm_DIRS)
 
 # Symbols definition for all compilers
-set(symbols_SYMB)
+set(symbols_SYMB ${symbols_SYMB}
+    STM32F030x6
+)
 
 # Symbols definition for each compiler
 set(symbols_c_SYMB)
