@@ -114,15 +114,25 @@ target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
     -Wall
     -Wextra
     -Wpedantic
-    -Wno-unused-parameter
-    $<$<COMPILE_LANGUAGE:C>: >
-    $<$<COMPILE_LANGUAGE:CXX>:
+    -Werror=return-type
+    -Wdouble-promotion
 
+    $<$<COMPILE_LANGUAGE:C>:
+    -Werror=discarded-qualifiers
+    -Werror=int-conversion
+    -Werror=implicit-function-declaration
+    >
+
+    $<$<COMPILE_LANGUAGE:CXX>:
+    -Werror=switch
+    -Werror=reorder
+    -Werror=format
     # -Wno-volatile
     # -Wold-style-cast
     # -Wuseless-cast
     # -Wsuggest-override
     >
+
     $<$<COMPILE_LANGUAGE:ASM>:-x assembler-with-cpp -MMD -MP>
     $<$<CONFIG:Debug>:-Og -g3 -ggdb>
     $<$<CONFIG:Release>:-Og -g0>
