@@ -9,8 +9,9 @@ copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 
 #include <stdint.h>
 
-#include <stm32f0xx.h>
+#include "common.h"
 
+#include <stm32f0xx.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -20,9 +21,6 @@ extern "C" {
 #define GPIO_BTN0   GPIOB, 1
 #define GPIO_LED_rd GPIOB, 3
 #define GPIO_LED_gn GPIOB, 4
-
-
-#define BIT(n) (1u << (n))
 
 
 void GPIO_init();
