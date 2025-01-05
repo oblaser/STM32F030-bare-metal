@@ -34,6 +34,7 @@ set(cpu_PARAMS
 set(sources_SRCS ${sources_SRCS}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/driver/core.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/driver/gpio.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/driver/uart.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/startup_stm32f030k6tx.s
     ${CMAKE_CURRENT_SOURCE_DIR}/src/syscall.c

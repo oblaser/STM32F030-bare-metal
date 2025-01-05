@@ -8,6 +8,7 @@ copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 
 #include "driver/core.h"
 #include "driver/gpio.h"
+#include "driver/uart.h"
 
 
 uint64_t tNow_upt_ms = 0;
@@ -17,6 +18,7 @@ int main()
 {
     CORE_init();
     GPIO_init();
+    UART_init();
 
     while (1)
     {
