@@ -1,7 +1,7 @@
 /*
 author          Oliver Blaser
-date            27.12.2024
-copyright       GPL-3.0 - Copyright (c) 2024 Oliver Blaser
+date            05.01.2025
+copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 */
 
 #ifndef IG_DRIVER_GPIO_H
@@ -9,7 +9,7 @@ copyright       GPL-3.0 - Copyright (c) 2024 Oliver Blaser
 
 #include <stdint.h>
 
-#include "stm32f0xx.h"
+#include <stm32f0xx.h>
 
 
 #ifdef __cplusplus
@@ -17,8 +17,9 @@ extern "C" {
 #endif
 
 
-#define GPIO_BTN0 GPIOB, 1
-#define GPIO_LED0 GPIOA, 8
+#define GPIO_BTN0   GPIOB, 1
+#define GPIO_LED_rd GPIOB, 3
+#define GPIO_LED_gn GPIOB, 4
 
 
 #define BIT(n) (1u << (n))
