@@ -20,8 +20,30 @@ int main()
     GPIO_init();
     UART_init();
 
+    UART_print_block(UART_com, "\n====================\n");
+    UART_print_block(UART_com, "started\n");
+    UART_awaitTxDone(UART_com);
+
     while (1)
     {
+        if (!UART_com->rxBusy)
+        {
+            if (UART_com->rxCount <= UART_com->rxBufferSize)
+            {
+                // echo
+                UART_write(UART_com, UART_com->rxBuffer, UART_com->rxCount);
+            }
+            else
+            {
+                UART_print(UART_com, "ERROR rx buffer overflow\n");
+                UART_print_block(UART_com, "\\ data: ");
+                UART_write_block(UART_com, UART_com->rxBuffer, UART_com->rxBufferSize);
+                UART_print_block(UART_com, "\n");
+            }
+
+            UART_rxDataRead(UART_com);
+        }
+
         if (GPIO_readPin(GPIO_BTN0)) { GPIO_setPin(GPIO_LED_rd); }
         else { GPIO_clrPin(GPIO_LED_rd); }
 
