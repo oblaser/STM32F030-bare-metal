@@ -48,7 +48,7 @@ void UART_init()
 
 
 
-    // USART1 Rx PA3, Tx PA2
+    // USART1 pins: Rx PA3, Tx PA2
     GPIOA->MODER |= (0x02 << GPIO_MODER_MODER3_Pos) | (0x02 << GPIO_MODER_MODER2_Pos);
     GPIOA->PUPDR |= (0x01 << GPIO_PUPDR_PUPDR3_Pos); // enable pull up for Rx pin
     GPIOA->AFR[0] |= (0x01 << GPIO_AFRL_AFRL3_Pos) | (0x01 << GPIO_AFRL_AFRL2_Pos);
