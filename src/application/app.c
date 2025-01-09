@@ -84,7 +84,7 @@ void APP_softTimeHandler_10ms()
 
 void handleCommand(const char* cmd)
 {
-    char ans[30];
+    static char ans[30];
 
     if (UTIL_strneq(cmd, "get-led\n", 8))
     {
