@@ -119,19 +119,23 @@ target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
     -Wall
     -Wextra
     -Wpedantic
+    -Werror=format
+    -Werror=overflow
     -Werror=return-type
     -Wdouble-promotion
 
     $<$<COMPILE_LANGUAGE:C>:
     -Werror=discarded-qualifiers
+    -Werror=implicit
+    -Werror=incompatible-pointer-types
     -Werror=int-conversion
-    -Werror=implicit-function-declaration
+    -Werror=pointer-sign
     >
 
     $<$<COMPILE_LANGUAGE:CXX>:
     -Werror=switch
     -Werror=reorder
-    -Werror=format
+    # -Wno-psabi
     # -Wno-volatile
     # -Wold-style-cast
     # -Wuseless-cast
@@ -149,13 +153,13 @@ target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
     ${cpu_PARAMS}
     ${linker_OPTS}
     -Wl,-Map=${CMAKE_PROJECT_NAME}.map
-    -u _printf_float # STDIO float formatting support (remove if not used)
+    # -u _printf_float # STDIO float formatting support (remove if not used)
     --specs=nosys.specs
     -Wl,--start-group
-    -lc
-    -lm
-    -lstdc++
-    -lsupc++
+    # -lc
+    # -lm
+    # -lstdc++
+    # -lsupc++
     -Wl,--end-group
     -Wl,-z,max-page-size=8 # Allow good software remapping across address space (with proper GCC section making)
     -Wl,--print-memory-usage
