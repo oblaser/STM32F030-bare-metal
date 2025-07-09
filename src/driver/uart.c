@@ -12,7 +12,7 @@ copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 #include <stddef.h>
 #include <stdint.h>
 
-#include "common.h"
+#include "bits/macros.h"
 #include "uart.h"
 
 #include <stm32f0xx.h>
