@@ -123,6 +123,7 @@ target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
     -Wall
     -Wextra
     -Wpedantic
+    # -Wno-unused-parameter
     -Werror=format
     -Werror=overflow
     -Werror=return-type

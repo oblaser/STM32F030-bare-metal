@@ -10,7 +10,6 @@ set(cpu_PARAMS ${cpu_PARAMS}
     # Other parameters
     # -mcpu, -mfloat, -mfloat-abi, ...
     -mcpu=cortex-m0
-	
 )
 
 # Linker script
@@ -19,39 +18,23 @@ set(linker_script_SRC ${linker_script_SRC}
 )
 
 # Sources
-set(sources_SRCS ${sources_SRCS}
-)
+set(sources_SRCS ${sources_SRCS})
 
 # Include directories
-set(include_c_DIRS ${include_c_DIRS}
-)
-set(include_cxx_DIRS ${include_cxx_DIRS}
-    
-)
-set(include_asm_DIRS ${include_asm_DIRS}
-    
-)
+set(include_c_DIRS ${include_c_DIRS})
+set(include_cxx_DIRS ${include_cxx_DIRS})
+set(include_asm_DIRS ${include_asm_DIRS})
 
 # Symbols definition
-set(symbols_c_SYMB ${symbols_c_SYMB}
-
-)
-set(symbols_cxx_SYMB ${symbols_cxx_SYMB}
-    
-)
-set(symbols_asm_SYMB ${symbols_asm_SYMB}
-    
-)
+set(symbols_c_SYMB ${symbols_c_SYMB})
+set(symbols_cxx_SYMB ${symbols_cxx_SYMB})
+set(symbols_asm_SYMB ${symbols_asm_SYMB})
 
 # Link directories
-set(link_DIRS ${link_DIRS}
-    
-)
+set(link_DIRS ${link_DIRS})
 
 # Link libraries
-set(link_LIBS ${link_LIBS}
-    
-)
+set(link_LIBS ${link_LIBS})
 
 # Compiler options
 set(compiler_OPTS ${compiler_OPTS})
