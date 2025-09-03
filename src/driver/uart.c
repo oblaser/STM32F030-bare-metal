@@ -78,7 +78,7 @@ int UART_write(UART_handle_t* h, const uint8_t* data, size_t count)
     UART(h)->TDR = h->txBuffer[h->txIdx];
     ++(h->txIdx);
 
-    UART(h)->CR1 = UART(h)->CR1 | USART_CR1_TXEIE;
+    UART(h)->CR1 |= USART_CR1_TXEIE;
 
     return 0;
 }
