@@ -18,6 +18,7 @@ copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 #include <stm32f0xx.h>
 
 
+
 #define UART(_h) ((USART_TypeDef*)((_h)->peripheral))
 
 #define UART_HANDLE_INIT(_peripheral, _rxBuffer, _txBuffer)                                                                                   \
@@ -28,13 +29,16 @@ copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 // end UART_HANDLE_INIT()
 
 
+
 static uint8_t uart1_rxBuffer[30];
 static uint8_t uart1_txBuffer[30];
 static UART_handle_t uart1 = UART_HANDLE_INIT(USART1, uart1_rxBuffer, uart1_txBuffer);
 
 
+
 // logical mapping of the peripheral instance
 UART_handle_t* UART_com = &uart1;
+
 
 
 void UART_init()

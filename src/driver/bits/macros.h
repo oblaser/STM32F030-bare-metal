@@ -12,6 +12,7 @@ extern "C" {
 #endif
 
 
+
 #ifndef BIT
 #define BIT(_n) (1u << (_n))
 #endif
@@ -19,6 +20,7 @@ extern "C" {
 #ifndef SIZEOF_ARRAY
 #define SIZEOF_ARRAY(_array) (sizeof(_array) / sizeof((_array)[0]))
 #endif
+
 
 
 #ifdef __cplusplus

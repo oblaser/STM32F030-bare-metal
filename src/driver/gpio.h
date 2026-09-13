@@ -1,6 +1,6 @@
 /*
 author          Oliver Blaser
-date            05.01.2025
+date            26.12.2025
 copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 */
 
@@ -18,12 +18,16 @@ extern "C" {
 #endif
 
 
+
 #define GPIO_BTN0   GPIOB, 1
 #define GPIO_LED_rd GPIOB, 3
 #define GPIO_LED_gn GPIOB, 4
 
 
+
 void GPIO_init();
+
+
 
 static inline uint32_t GPIO_read(const GPIO_TypeDef* port) { return (port->IDR); }
 
@@ -33,7 +37,11 @@ static inline void GPIO_set(GPIO_TypeDef* port, uint32_t mask) { port->BSRR = ma
 
 static inline void GPIO_clr(GPIO_TypeDef* port, uint32_t mask) { port->BRR = mask; }
 
-static inline int GPIO_readPin(const GPIO_TypeDef* port, uint8_t pin) { return ((port->IDR) & BIT(pin)); }
+static inline int GPIO_readPin(const GPIO_TypeDef* port, uint8_t pin)
+{
+    _Static_assert(sizeof(int) >= sizeof(port->IDR));
+    return ((port->IDR) & BIT(pin));
+}
 
 static inline void GPIO_writePin(GPIO_TypeDef* port, uint8_t pin, int state)
 {
@@ -50,6 +58,7 @@ static inline void GPIO_togglePin(GPIO_TypeDef* port, uint8_t pin)
     if ((port->ODR) & BIT(pin)) { port->BRR = BIT(pin); }
     else { port->BSRR = BIT(pin); }
 }
+
 
 
 #ifdef __cplusplus

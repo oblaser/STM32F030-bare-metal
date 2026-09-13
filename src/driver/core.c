@@ -1,6 +1,6 @@
 /*
 author          Oliver Blaser
-date            05.01.2025
+date            26.12.2025
 copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 */
 
@@ -11,6 +11,7 @@ copyright       GPL-3.0 - Copyright (c) 2025 Oliver Blaser
 #include <stm32f0xx.h>
 
 
+
 void CORE_init()
 {
     // init flash controller for higher clock frequencies
@@ -19,6 +20,7 @@ void CORE_init()
 
 
     // init clocks to achieve the desired clock frequencies defined in the header file
+    _Static_assert((CORE_SYSCLK == 32000000) && (CORE_HCLK == 32000000) && (CORE_PCLK == 16000000));
     RCC->CFGR |= RCC_CFGR_PLLMUL8 | RCC_CFGR_PLLSRC_HSI_DIV2 | RCC_CFGR_PPRE_2 | RCC_CFGR_HPRE_DIV1; // PLL = HSI/2 x8 ; HPRE = /1 ; PPRE = /2
     RCC->CR |= RCC_CR_PLLON;
     while (!(RCC->CR & RCC_CR_PLLRDY)) { __NOP(); }

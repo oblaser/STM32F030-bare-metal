@@ -18,8 +18,10 @@ extern "C" {
 #endif
 
 
+
 #define UART_EBUSY (-1)
 #define UART_ESIZE (-2)
+
 
 
 typedef struct
@@ -41,7 +43,9 @@ typedef struct
 } UART_handle_t;
 
 
+
 extern UART_handle_t* UART_com;
+
 
 
 void UART_init();
@@ -55,6 +59,7 @@ int UART_print_block(UART_handle_t* h, const char* str);
 void UART_rxDataRead(UART_handle_t* h);
 
 void UART_awaitTxDone(const UART_handle_t* h);
+
 
 
 #ifdef __cplusplus
